@@ -1,13 +1,13 @@
-import { ReactNode } from "react"
+import { MouseEventHandler, ReactNode } from "react"
 import "./index.css"
 import { Color, Size, Variant } from "../../../types/common"
 
 type ButtonProps = {
   children: ReactNode
-  onClick?: () => void,
+  onClick?: MouseEventHandler,
   style?: React.CSSProperties,
   size?: Size,
-  variant: Variant,
+  variant?: Variant,
   color?: Color,
 }
 
