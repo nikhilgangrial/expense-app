@@ -8,7 +8,7 @@ export const TablePage = () => {
     <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem", margin: "1rem" }}>
       {sizes.map((size) => {
         return (
-          <Input size={size} />
+          <Input size={size} placeholder={size}/>
         )
       })}
     </div>

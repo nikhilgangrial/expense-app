@@ -22,7 +22,8 @@ export const Button = (
   }: ButtonProps,
 ) => {
   return (
-    <button 
+    <button
+      role="button"
       style={style}
       className={`button button-${variant} button-${color} button-${size}`} 
       onClick={onClick}
