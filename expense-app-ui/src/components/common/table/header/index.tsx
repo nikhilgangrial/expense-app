@@ -1,20 +1,30 @@
+import { SortDirection } from "../../../../types/common";
 import { TableColumn } from "../column";
 import { HeaderCell } from "./cell";
 
 type TableHeaderProps<T> = {
-  template: Omit<Omit<TableColumn<T>, "body">, "editBody">[]
-  data: T[]
+  template: { [key: string]: Omit<Omit<TableColumn<T>, "body">, "editBody"> }
+  onSortChange: (column: string, direction: SortDirection) => void
+  currentSort: { direction: SortDirection, column: string } | undefined
 }
 
 export function TableHeader<T>({
   template,
-  data
+  onSortChange,
+  currentSort,
 }: TableHeaderProps<T>) {
-  return(
+  return (
     <thead>
       <tr>
-        {template.map((columnTemplate, index) => {
-          return <HeaderCell template={columnTemplate} data={data} key={index}/>
+        {Object.keys(template).map((columnTemplate, index) => {
+          return (
+            <HeaderCell
+              template={template[columnTemplate]}
+              key={index}
+              currentSort={currentSort}
+              onSortChange={onSortChange}
+            />
+          )
         })}
       </tr>
     </thead>

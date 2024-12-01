@@ -31,16 +31,17 @@ const data: Human[] = [
   { "name": "Isabella", "age": 33 }
 ]
 
-const columns: TableColumn<Human>[] = [
-  { 
-    header: () => "Name",
+const columns: { [key: string]: TableColumn<Human> } = {
+  "Name": { 
+    header: "Name",
     body: (rowData) => rowData.name,
+    sortable: (rowData) => rowData.name,
   },
-  { 
-    header: () => "Age",
+  "Age": { 
+    header: "Age",
     body: (rowData) => rowData.age,
   }
-];
+};
 
 type Story = StoryObj<typeof Table<Human>>;
 

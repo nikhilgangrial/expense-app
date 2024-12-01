@@ -2,25 +2,36 @@ import { TableColumn } from "./column"
 import { TableHeader } from "./header"
 import { TableRow } from "./tbody"
 import "./index.css"
+import { useState } from "react"
+import { SortDirection } from "../../../types/common"
+import { localSort } from "./utils"
 
 type TableProps<T> = {
-  columns: TableColumn<T>[]
+  columns: { [key:string]: TableColumn<T> }
   data: T[]
+  onSortChange?: (data: T[], sortable: (data: T) => string | number, direction: SortDirection) => T[]
 }
 
 export function Table<T>(
   {
     columns,
-    data
+    data,
+    onSortChange = localSort
   }: TableProps<T>) {
+  const [sort, setSort] = useState<{ direction: SortDirection, column: string } | undefined>();
+  const [sortedData, setSortedData] = useState(data);
 
-  // TODO: Handle Sort and Edit
+  const handleSortChange = (column: string, direction: SortDirection) => {
+    setSort({column, direction})
+    setSortedData(onSortChange(sortedData, columns[column].sortable!, direction))
+  }
+
   return (
     <table>
-      <TableHeader template={columns} data={data} />
+      <TableHeader template={columns} currentSort={sort} onSortChange={handleSortChange} />
       <tbody>
-        {data.map((rowData) => {
-          return <TableRow template={columns} rowData={rowData} />
+        {sortedData.map((rowData, index) => {
+          return <TableRow template={columns} rowData={rowData} key={index}/>
         })}
       </tbody>
     </table>

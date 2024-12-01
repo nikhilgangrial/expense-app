@@ -1,4 +1,5 @@
 export type UUID = `${string}-${string}-${string}-${string}`;
+export type SortDirection = "asc" | "desc"
 
 // Style Specific
 export type Size = "small" | "medium" | "large";
