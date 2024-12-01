@@ -2,6 +2,7 @@ import { SortDirection } from "../../../../types/common"
 import { Button } from "../../button"
 import { Icon } from "../../icon"
 import { TableColumn } from "../column"
+import "./cell.css"
 
 type HeaderCellProps<T> = {
   template: Omit<Omit<TableColumn<T>, "body">, "editBody">
@@ -38,6 +39,6 @@ export function HeaderCell<T>(
     </Button>
 
   return (
-    <th>{template.header} {template.sortable && sortButton}</th>
+    <th className={isActive ? "active-sort" : ""}>{template.header} {template.sortable && sortButton}</th>
   )
 }

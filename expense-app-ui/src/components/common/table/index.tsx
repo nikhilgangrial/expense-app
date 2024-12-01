@@ -12,6 +12,7 @@ type TableProps<T> = {
   onSortChange?: (data: T[], sortable: (data: T) => string | number, direction: SortDirection) => T[]
 }
 
+// TODO: Add row edit
 export function Table<T>(
   {
     columns,
