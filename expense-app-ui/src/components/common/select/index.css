@@ -1,0 +1,26 @@
+.select {
+  color: white;
+  background-color: #333;
+  border: 2px solid #555;
+}
+
+/* Small */
+.select-small {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+/* Medium */
+.select-medium {
+  font-size: 1rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+}
+
+/* Large */
+.select-large {
+  font-size: 1.125rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+}
