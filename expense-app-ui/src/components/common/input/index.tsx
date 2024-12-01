@@ -25,7 +25,7 @@ export const Input = (
       type={type}
       style={style}
       placeholder={placeholder}
-      className={`input-${size}`}
+      className={`input input-${size}`}
       onChange={onChange}
     />
   )

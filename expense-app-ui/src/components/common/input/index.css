@@ -1,3 +1,9 @@
+.input {
+  color: white;
+  background-color: #333;
+  border: 2px solid #555;
+}
+
 /* Small */
 .input-small {
   font-size: 0.875rem;
