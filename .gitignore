@@ -1,2 +1,3 @@
 /expense-app-ui/node_modules
 /expense-app-apis/target
+.vscode/
