@@ -1,5 +1,6 @@
 import { TableColumn } from "../column"
 import { TableCell } from "./cell"
+import "./index.css";
 
 type TableRowProps<T> = {
   template: Omit<Omit<TableColumn<T>, "sortable">, "header">[]

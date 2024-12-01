@@ -1,6 +1,7 @@
 import { TableColumn } from "./column"
 import { TableHeader } from "./header"
 import { TableRow } from "./tbody"
+import "./index.css"
 
 type TableProps<T> = {
   columns: TableColumn<T>[]
