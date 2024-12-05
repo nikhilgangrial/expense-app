@@ -19,7 +19,7 @@ export function Table<T>(
     data,
     onSortChange = localSort
   }: TableProps<T>) {
-  const [sort, setSort] = useState<{ direction: SortDirection, column: string } | undefined>();
+  const [sort, setSort] = useState<{direction: SortDirection, column: string}>();
   const [sortedData, setSortedData] = useState(data);
 
   const handleSortChange = (column: string, direction: SortDirection) => {

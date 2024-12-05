@@ -1,5 +1,3 @@
-export type IconName =
-  "home" |
-  "sortAsc" |
-  "sortDesc" |
-  "search"
+import icons from "./icons.json"
+
+export type IconName = keyof typeof icons;
