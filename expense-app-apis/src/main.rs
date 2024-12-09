@@ -4,7 +4,12 @@ use tonic::transport::Server;
 
 mod services;
 
-use services::calculator::{CalculatorServer, CalculatorService, CALC_DESCRIPTOR};
+mod proto {
+    pub const PROTO_DESCRIPTOR: &[u8] = tonic::include_file_descriptor_set!("proto_descriptor");
+}
+
+use proto::PROTO_DESCRIPTOR;
+use services::calculator::{CalculatorServer, CalculatorService};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
@@ -13,7 +18,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let calc = CalculatorService {};
 
     let reflection_service = tonic_reflection::server::Builder::configure()
-        .register_encoded_file_descriptor_set(CALC_DESCRIPTOR)
+        .register_encoded_file_descriptor_set(PROTO_DESCRIPTOR)
         .build_v1()?;
 
     Server::builder()

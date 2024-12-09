@@ -1,14 +1,12 @@
 mod proto {
     tonic::include_proto!("calculator");
-
-    pub const CALC_DESCRIPTOR: &[u8] = tonic::include_file_descriptor_set!("calculator_descriptor");
 }
 
 use tonic::{Request, Response, Status};
 
 use proto::{calculator_server::Calculator, CalculationRequest, CalculationResponse};
 
-pub use proto::{calculator_server::CalculatorServer, CALC_DESCRIPTOR};
+pub use proto::calculator_server::CalculatorServer;
 
 pub struct CalculatorService;
 
