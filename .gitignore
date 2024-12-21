@@ -1,4 +1,4 @@
-/expense-app-ui/node_modules
-/expense-app-apis/target
+/ui/node_modules
+/api/target
 .vscode/
 .idea/
