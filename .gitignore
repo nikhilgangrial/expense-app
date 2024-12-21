@@ -1,4 +1,4 @@
-/ui/node_modules
-/api/target
+# Contains common ignore paths
+
 .vscode/
 .idea/
