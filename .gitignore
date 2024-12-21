@@ -1,3 +1,11 @@
-/expense-app-ui/node_modules
-/expense-app-apis/target
-.vscode/
+# Contains common ignore paths
+
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
