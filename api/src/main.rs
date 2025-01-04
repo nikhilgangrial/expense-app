@@ -1,9 +1,9 @@
 use std::error::Error;
 
 use tonic::transport::Server;
-use tracing::Level;
 
 mod services;
+mod utils;
 
 mod proto {
     pub const PROTO_DESCRIPTOR: &[u8] = tonic::include_file_descriptor_set!("proto_descriptor");
@@ -11,14 +11,11 @@ mod proto {
 
 use proto::PROTO_DESCRIPTOR;
 use services::calculator::{CalculatorServer, CalculatorService};
+use utils::logger;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    let tracing_subscriber = tracing_subscriber::FmtSubscriber::builder()
-        .with_max_level(Level::INFO)
-        .finish();
-    tracing::subscriber::set_global_default(tracing_subscriber)
-        .expect("setting default subscriber failed");
+    logger::setup()?;
 
     let addr = "[::1]:50069".parse()?;
 
