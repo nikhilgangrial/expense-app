@@ -1,6 +1,7 @@
 use std::error::Error;
 
 use tonic::transport::Server;
+use tracing::Level;
 
 mod services;
 
@@ -13,6 +14,12 @@ use services::calculator::{CalculatorServer, CalculatorService};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
+    let tracing_subscriber = tracing_subscriber::FmtSubscriber::builder()
+        .with_max_level(Level::INFO)
+        .finish();
+    tracing::subscriber::set_global_default(tracing_subscriber)
+        .expect("setting default subscriber failed");
+
     let addr = "[::1]:50069".parse()?;
 
     let calc = CalculatorService {};

@@ -9,6 +9,10 @@ tokio = { version = "1.42", features = ["full"] }
 tonic-reflection = "0.12"
 prost = "0.13"
 
+# logging
+tracing = "0.1"
+tracing-subscriber = "0.3.19"
+
 [build-dependencies]
 tonic-build = "0.12"
 
